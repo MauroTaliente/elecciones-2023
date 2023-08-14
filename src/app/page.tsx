@@ -81,7 +81,7 @@ export default async function Home() {
           return (
             <div key={code} className="flex py-2 md:p-4 w-full md:w-1/2">
               <div className="flex flex-col bg-slate-300 justify-start items-centerw-full rounded-lg overflow-hidden w-full">
-                <header className={`flex flex-row justify-between items-start p-4 gap-2 h-40 ${bg}`}>
+                <header className={`flex flex-row justify-between items-start p-4 gap-2 min-h-40 ${bg}`}>
                   <h4 className="flex flex-1" >{name}</h4>
                   <div className="bg-white p-2 rounded-md">
                     <Image
