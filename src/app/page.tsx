@@ -69,8 +69,8 @@ export default async function Home() {
             return 'https://www.electoral.gob.ar/nuevo/img/btnPrincipal/icono_1.png';
           })();
           return (
-            <div key={code} className="flex p-4 w-full md:w-1/2">
-              <div className="flex flex-col bg-slate-300 justify-start items-centerw-full rounded-lg overflow-hidden  w-full">
+            <div key={code} className="flex py-2 md:p-4 w-full md:w-1/2">
+              <div className="flex flex-col bg-slate-300 justify-start items-centerw-full rounded-lg overflow-hidden w-full">
                 <header className={`flex flex-row justify-between items-start p-4 gap-2 h-40 ${bg}`}>
                   <h4 className="flex flex-1" >{name}</h4>
                   <div className="bg-white p-2 rounded-md">
@@ -83,14 +83,14 @@ export default async function Home() {
                   </div>
                 </header>
                 <div className="flex flex-col p-4">
-                    <div className="flex flex-row justify-stretch items-stretch">
-                      <h2 className="w-1/2"><b>%: {perc}</b></h2>
-                      <h2 className="w-1/2">T: {votos}</h2>
+                    <div className="flex flex-col md:flex-row justify-stretch items-stretch">
+                      <h2 className="w-full md:w-1/2"><b>%: {perc}</b></h2>
+                      <h2 className="w-full md:w-1/2">T: {votos}</h2>
                     </div>
                   <ul>
-                    <li className="flex flex-row justify-stretch items-stretch">
-                      <h5 className="w-1/2"><b>% cargos: {percCarg}</b></h5>
-                      <h5 className="w-1/2">cargos: {cargos}</h5>
+                    <li className="flex flex-col md:flex-row justify-stretch items-stretch">
+                      <h5 className="w-full md:w-1/2"><b>% cargos: {percCarg}</b></h5>
+                      <h5 className="w-full md:w-1/2">cargos: {cargos}</h5>
                     </li>
                   </ul>
                 </div>
