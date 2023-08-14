@@ -14,6 +14,7 @@ function formatNumber(value: string | number) {
 
 export default async function Home() {
   const results = await api.results();
+
   const {
     totalVotos, nulos, blancos, afirmativos,
     partidos,
@@ -38,7 +39,7 @@ export default async function Home() {
   return (
     <main className="flex flex-col items-center justify-between p-y-24 gap-4">
       <div className="flex flex-row gap-2 flex-wrap items-center justify-center">
-        <div className="flex flex-col bg-slate-100 p-4 rounded-lg justify-center items-center">
+        <div className="flex flex-1 flex-col bg-slate-100 p-4 rounded-lg justify-center items-center">
           <label>Blancos</label>
           <h2><b>{formatNumber(blancos)}</b></h2>
         </div>
