@@ -1,6 +1,15 @@
 import Image from 'next/image';
 import api from './api';
 
+function formatNumber(value: string | number) {
+  const number = (typeof value === 'string') ? parseFloat(value) : value;
+  const options = {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2,
+  };
+  return new Intl.NumberFormat('es-AR', options).format(number);
+}
+
 export default async function Home() {
   const results = await api.results();
   const {
@@ -27,19 +36,19 @@ export default async function Home() {
       <div className="flex flex-row gap-2 flex-wrap">
         <div className="flex flex-col bg-slate-100 p-4 rounded-lg justify-center items-center">
           <label>Blancos</label>
-          <h2><b>{blancos}</b></h2>
+          <h2><b>{formatNumber(blancos)}</b></h2>
         </div>
         <div className="flex flex-col bg-red-100 p-4 rounded-lg justify-center items-center">
           <label>Nulos</label>
-          <h2><b>{nulos}</b></h2>
+          <h2><b>{formatNumber(nulos)}</b></h2>
         </div>
         <div className="flex flex-col bg-green-300 p-4 rounded-lg justify-center items-center">
           <label>Afirmativos</label>
-          <h2><b>{afirmativos}</b></h2>
+          <h2><b>{formatNumber(afirmativos)}</b></h2>
         </div>
         <div className="flex flex-col bg-slate-300 p-4 rounded-lg justify-center items-center">
           <label>Total Votos</label>
-          <h2><b>{totalVotos}</b></h2>
+          <h2><b>{formatNumber(totalVotos)}</b></h2>
         </div>
       </div>
       <div className="flex flex-row flex-wrap">
@@ -68,6 +77,7 @@ export default async function Home() {
             if (code === '132') return 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Juntos-Por-El-Cambio-Logo.svg/2880px-Juntos-Por-El-Cambio-Logo.svg.png';
             return 'https://www.electoral.gob.ar/nuevo/img/btnPrincipal/icono_1.png';
           })();
+
           return (
             <div key={code} className="flex py-2 md:p-4 w-full md:w-1/2">
               <div className="flex flex-col bg-slate-300 justify-start items-centerw-full rounded-lg overflow-hidden w-full">
@@ -85,14 +95,14 @@ export default async function Home() {
                 <div className="flex flex-col p-4">
                     <div className="flex flex-col md:flex-row justify-stretch items-stretch">
                       <h2 className="w-full md:w-1/2"><b>%: {perc}</b></h2>
-                      <h2 className="w-full md:w-1/2">T: {votos}</h2>
+                      <h2 className="w-full md:w-1/2">T: {formatNumber(votos)}</h2>
                     </div>
-                  <ul>
+                  {/* <ul>
                     <li className="flex flex-col md:flex-row justify-stretch items-stretch">
                       <h5 className="w-full md:w-1/2"><b>% cargos: {percCarg}</b></h5>
                       <h5 className="w-full md:w-1/2">cargos: {cargos}</h5>
                     </li>
-                  </ul>
+                  </ul> */}
                 </div>
               </div>
             </div>
