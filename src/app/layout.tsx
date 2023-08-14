@@ -28,9 +28,8 @@ export default function RootLayout({
       <body className={`
         ${montserrat.className} ${dm_sans.className}
         flex justify-center items-center bg-slate-800
-        w-full
-        min-h-[100vh]`}>
-        <div className="flex justify-center items-center
+        w-full`}>
+        <div className="flex flex-col justify-center items-center
           w-full max-w-7xl border-x border-slate-700">
             {children}
         </div>

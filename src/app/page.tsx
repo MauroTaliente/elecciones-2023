@@ -21,11 +21,10 @@ export default async function Home() {
         percCarg: number;
       }[];
    };
-  console.log(partidos);
-  
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 gap-4">
-      <div className="flex flex-row gap-2">
+    <main className="flex flex-col items-center justify-between p-y-24 gap-4">
+      <div className="flex flex-row gap-2 flex-wrap">
         <div className="flex flex-col bg-slate-100 p-4 rounded-lg justify-center items-center">
           <label>Blancos</label>
           <h2><b>{blancos}</b></h2>
@@ -45,7 +44,7 @@ export default async function Home() {
       </div>
       <div className="flex flex-row flex-wrap">
         {partidos
-          .sort((a, b) => a.votos - b.votos)
+          .sort((a, b) => b.votos - a.votos)
           .map((partido) => {
           const {
             code,
@@ -70,7 +69,7 @@ export default async function Home() {
             return 'https://www.electoral.gob.ar/nuevo/img/btnPrincipal/icono_1.png';
           })();
           return (
-            <div key={code} className="flex p-4 w-1/2">
+            <div key={code} className="flex p-4 w-full md:w-1/2">
               <div className="flex flex-col bg-slate-300 justify-start items-centerw-full rounded-lg overflow-hidden  w-full">
                 <header className={`flex flex-row justify-between items-start p-4 gap-2 h-40 ${bg}`}>
                   <h4 className="flex flex-1" >{name}</h4>
